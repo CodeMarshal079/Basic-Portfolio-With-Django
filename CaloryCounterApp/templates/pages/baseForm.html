@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+
+{% block body %}
+
+<div class="container">
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <h1>{{title}}</h1>
+
+        {{form.as_p}}
+
+        <input type="submit" value="{{btn}}" class="btn btn-outline-success">
+
+        {% if title == "Login Here" %}
+            <a href="{% url 'register' %}" class="btn btn-danger">Register</a>
+        {% endif %}
+
+        {% if title == "Register Here" %}
+            <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        {% endif %}
+
+    </form>
+
+</div>
+
+{% endblock body %}
